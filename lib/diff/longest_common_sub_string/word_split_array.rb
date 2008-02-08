@@ -1,5 +1,5 @@
 #--#
-# Copyright: (c) 2006, 2007 The LogiLogi Foundation <foundation@logilogi.org>
+# Copyright: (c) 2006-2008 The LogiLogi Foundation <foundation@logilogi.org>
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-

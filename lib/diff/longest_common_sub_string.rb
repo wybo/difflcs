@@ -1,5 +1,5 @@
 #--#
-# Copyright: (c) 2006, 2007 The LogiLogi Foundation <foundation@logilogi.org>
+# Copyright: (c) 2006-2008 The LogiLogi Foundation <foundation@logilogi.org>
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
@@ -46,7 +46,7 @@ end
 module Diff::LongestCommonSubString
   class << self
     # Diffs the current logi_version and the logi's body_text with the
-    # linkless_textile given and returns a hash containing:
+    # logi_versions body_text given and returns a hash containing:
     # 
     # <tt>:matched_old</tt> = the position_ranges in the old text for 
     #     the places where the new matches the old.
