@@ -25,15 +25,15 @@ class CounterTest < Test::Unit::TestCase
 
   def test_stepping
     c = Diff::LongestCommonSubString::Counter.new(5,80)
-    assert_equal PositionRange.new(5,5), c.in_old
-    assert_equal PositionRange.new(80,80), c.in_new
+    assert_equal PositionRange.new(5,6), c.in_old
+    assert_equal PositionRange.new(80,81), c.in_new
 
     c2 = Diff::LongestCommonSubString::Counter.new(5,80)
     c2.step_up
     c2.step_up
 
-    assert_equal PositionRange.new(5,7), c2.in_old
-    assert_equal PositionRange.new(80,82), c2.in_new
+    assert_equal PositionRange.new(5,8), c2.in_old
+    assert_equal PositionRange.new(80,83), c2.in_new
   end
 
   def test_assignment
@@ -41,17 +41,17 @@ class CounterTest < Test::Unit::TestCase
     5.times do c.step_up end
 
     assert_equal 6, c.size
-    c.in_old = PositionRange.new(5,8)
+    c.in_old = PositionRange.new(5,9)
     assert_equal 4, c.size
-    assert_equal PositionRange.new(80,83), c.in_new
+    assert_equal PositionRange.new(80,84), c.in_new
 
     c2 = Diff::LongestCommonSubString::Counter.new(5,80)
     3.times do c2.step_up end
 
     assert_equal 4, c2.size
-    c2.in_new = PositionRange.new(80,81)
+    c2.in_new = PositionRange.new(80,82)
     assert_equal 2, c2.size
-    assert_equal PositionRange.new(5,6), c2.in_old
+    assert_equal PositionRange.new(5,7), c2.in_old
 
     c3 = Diff::LongestCommonSubString::Counter.new(5,80)
     4.times do c3.step_up end
@@ -59,11 +59,11 @@ class CounterTest < Test::Unit::TestCase
     assert_equal 5, c3.size
 
     c3.in_new = PositionRange.new(80,82)
-    assert_equal 3, c3.size
+    assert_equal 2, c3.size
     assert_equal PositionRange.new(5,7), c3.in_old
 
     c3.in_old = PositionRange.new(6,7)
-    assert_equal 2, c3.size
+    assert_equal 1, c3.size
     assert_equal PositionRange.new(81,82), c3.in_new
   end
 

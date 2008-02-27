@@ -29,16 +29,16 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
     
     diff_hash = Diff::LongestCommonSubString.longest_common_sub_strings(old_arr,new_arr)
     
-    assert_equal PositionRange.new(2,3),
+    assert_equal PositionRange.new(2,4),
         diff_hash[:matched_old].first
-    assert_equal PositionRange.new(1,2),
+    assert_equal PositionRange.new(1,3),
         diff_hash[:matched_new].first
 
     old_arr = 'aaaaablabbbbbbccccc'.split('')
     new_arr = 'aaaaakbbbbbbk'.split('')
 
-    assert_equal({:matched_old => PositionRange::List.from_s('8,13:0,4'),
-            :matched_new => PositionRange::List.from_s('6,11:0,4')},
+    assert_equal({:matched_old => PositionRange::List.from_s('8,14:0,5'),
+            :matched_new => PositionRange::List.from_s('6,12:0,5')},
         Diff::LongestCommonSubString.longest_common_sub_strings(old_arr,new_arr))
   end
 
@@ -107,8 +107,8 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
   end
 
   def test_string
-    assert_equal({:matched_old => PositionRange::List.from_s('0,1:5,8:2,3'),
-            :matched_new => PositionRange::List.from_s('0,1:3,6:7,8')},
+    assert_equal({:matched_old => PositionRange::List.from_s('0,2:5,9:2,4'),
+            :matched_new => PositionRange::List.from_s('0,2:3,7:7,9')},
         '123456789'.diff('120678934'))
   end
 
@@ -119,7 +119,7 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
     substrings.each {|substring|
       pos = string.index(substring)
       if pos
-        p_r_l.push(PositionRange.new(pos, pos + substring.size - 1))
+        p_r_l.push(PositionRange.new(pos, pos + substring.size))
       else
         raise StandardError, ' Substring not found'
       end

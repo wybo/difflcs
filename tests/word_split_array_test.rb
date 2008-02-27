@@ -36,18 +36,23 @@ class WordSplitArrayTest < Test::Unit::TestCase
 
   def test_translate_to_pos
     # normal
-    assert_equal PositionRange::List.from_s('0,2:3,3:4,5:6,8:9,11'), 
+    assert_equal PositionRange::List.from_s('0,3:3,4:4,6:6,9:9,12'), 
         Diff::LongestCommonSubString::WordSplitArray.new('boo ba   bol').translate_to_pos(
-            PositionRange::List.from_s('0,0:1,1:2,2:3,3:4,4'))
+            PositionRange::List.from_s('0,1:1,2:2,3:3,4:4,5'))
+
+    # scrambled
+    assert_equal PositionRange::List.from_s('3,4:0,3'), 
+        Diff::LongestCommonSubString::WordSplitArray.new('boo ').translate_to_pos(
+            PositionRange::List.from_s('1,2:0,1'))
 
     # ends with space
-    assert_equal PositionRange::List.from_s('0,2:3,3:4,6:7,7'), 
+    assert_equal PositionRange::List.from_s('0,3:3,4:4,7:7,8'), 
         Diff::LongestCommonSubString::WordSplitArray.new('boo baa ').translate_to_pos(
-            PositionRange::List.from_s('0,0:1,1:2,2:3,3'))
+            PositionRange::List.from_s('0,1:1,2:2,3:3,4'))
 
     # starts with space
-    assert_equal PositionRange::List.from_s('0,0:1,3:4,4:5,7'), 
+    assert_equal PositionRange::List.from_s('0,1:1,4:4,5:5,8'), 
         Diff::LongestCommonSubString::WordSplitArray.new(' boo baa').translate_to_pos(
-            PositionRange::List.from_s('0,0:1,1:2,2:3,3'))
+            PositionRange::List.from_s('0,1:1,2:2,3:3,4'))
   end
 end

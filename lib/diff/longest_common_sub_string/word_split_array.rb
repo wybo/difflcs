@@ -43,17 +43,15 @@ class Diff::LongestCommonSubString::WordSplitArray < Array
   #
   def translate_to_pos(positions)
     word_p = 0
-    temp_array = Array.new
+    temp_array = [0]
     i = 0
     while i < self.size
-      temp_array.push([word_p])
-      word_p += self[i].size - 1
-      temp_array.last.push(word_p)
-      word_p += 1
+      word_p += self[i].size
+      temp_array.push(word_p)
       i += 1
     end
     return PositionRange::List.new(
         positions.collect {|position| position.new_dup(
-            temp_array[position.begin][0], temp_array[position.end][1])})
+            temp_array[position.begin], temp_array[position.end])})
   end
 end

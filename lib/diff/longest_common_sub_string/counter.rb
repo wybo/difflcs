@@ -38,7 +38,7 @@ class Diff::LongestCommonSubString::Counter
   #
   def in_old
     if !@in_old
-      @in_old = PositionRange.new(@in_old_begin, @in_old_begin + @size - 1)
+      @in_old = PositionRange.new(@in_old_begin, @in_old_begin + @size)
     end
     return @in_old
   end
@@ -50,7 +50,7 @@ class Diff::LongestCommonSubString::Counter
   #
   def in_new
     if !@in_new
-      @in_new = PositionRange.new(@in_new_begin, @in_new_begin + @size - 1)
+      @in_new = PositionRange.new(@in_new_begin, @in_new_begin + @size)
     end
     return @in_new
   end
