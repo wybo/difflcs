@@ -16,7 +16,7 @@
 class Diff::LongestCommonSubString::WordSplitArray < Array
 
   ### Constants
-  
+
   # Used as a separator
   SEPARATOR = "\031" # The Unit Separator character
 

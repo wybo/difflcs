@@ -109,7 +109,7 @@ class Diff::LongestCommonSubString::Counter
   end
 
   protected
-  
+
   # Helper for in_new = and in_old =
   #
   def adjust(to_set, other_old, other_new)

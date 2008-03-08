@@ -32,7 +32,7 @@ module Diff::LongestCommonSubString
   def diff(other, options = {})
     Diff::LongestCommonSubString.diff(self.split(''), other.split(''), options)
   end
-  
+
   # Diffs words in self with other, see Diff::LongestCommonSubString#diff
   #
   # Words are non-spaces or groups of spaces delimited by either 
