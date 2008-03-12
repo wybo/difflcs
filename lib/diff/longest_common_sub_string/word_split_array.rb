@@ -26,7 +26,8 @@ class Diff::LongestCommonSubString::WordSplitArray < Array
   #
   def initialize(text)
     old_end = 0
-    treated = text.scan(/[^\w#{SEPARATOR}]+|#{SEPARATOR}/) do |literal| 
+    # splits for html-tags, for any non-word-characters & for SEPARATORs
+    treated = text.scan(/<\/?\w+>|[^\w<\/>#{SEPARATOR}]+|#{SEPARATOR}/) do |literal| 
       match = $~
       if match.begin(0) > old_end
         self.push(text[old_end...match.begin(0)])

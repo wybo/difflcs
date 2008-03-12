@@ -30,6 +30,8 @@ class WordSplitArrayTest < Test::Unit::TestCase
     assert_equal [' ','boo','. ','ba',' ','bol'], Diff::LongestCommonSubString::WordSplitArray.new(' boo. ba bol')
     assert_equal ['boo','. ','ba',' ','bol',' '], Diff::LongestCommonSubString::WordSplitArray.new('boo. ba bol ')
     assert_equal [' ','boo','. ','ba',' ','bol',' '], Diff::LongestCommonSubString::WordSplitArray.new(' boo. ba bol ')
+    assert_equal [' ','boo','. ','<ba>',' ','</bol>',' '], Diff::LongestCommonSubString::WordSplitArray.new(' boo. <ba> </bol> ')
+    assert_equal [' ','boo','. ','<ba>','moma','</bol>',' '], Diff::LongestCommonSubString::WordSplitArray.new(' boo. <ba>moma</bol> ')
     assert_equal ['boo',' ',Diff::LongestCommonSubString::WordSplitArray::SEPARATOR,' ','ba',' ','bol'], 
         Diff::LongestCommonSubString::WordSplitArray.new('boo ' + Diff::LongestCommonSubString::WordSplitArray::SEPARATOR + ' ba bol')
   end
