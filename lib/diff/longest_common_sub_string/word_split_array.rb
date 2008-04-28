@@ -20,7 +20,7 @@ class Diff::LongestCommonSubString::WordSplitArray < Array
   # Used as a separator
   SEPARATOR = "\031" # The Unit Separator character
 
-  ### Methods
+  ### Constructors
 
   # Splits the words, and treats whitespace correctly.
   #
@@ -39,6 +39,8 @@ class Diff::LongestCommonSubString::WordSplitArray < Array
       self.push(text[old_end...text.size])
     end
   end
+
+  ### Methods
 
   # Translates word-positions to character-positions.
   #

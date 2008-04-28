@@ -22,6 +22,7 @@ require 'position_range'
 require 'test/unit'
 
 class WordSplitArrayTest < Test::Unit::TestCase
+  ### Initialization
 
   def test_initialize
     assert_equal ['boo',' ','ba',' ','bol'], Diff::LongestCommonSubString::WordSplitArray.new('boo ba bol')
@@ -35,6 +36,8 @@ class WordSplitArrayTest < Test::Unit::TestCase
     assert_equal ['boo',' ',Diff::LongestCommonSubString::WordSplitArray::SEPARATOR,' ','ba',' ','bol'], 
         Diff::LongestCommonSubString::WordSplitArray.new('boo ' + Diff::LongestCommonSubString::WordSplitArray::SEPARATOR + ' ba bol')
   end
+
+  ### Methods
 
   def test_translate_to_pos
     # normal

@@ -22,8 +22,17 @@ require 'diff/longest_common_sub_string'
 require 'test/unit'
 
 class CounterTest < Test::Unit::TestCase
+  
+  ### Initialization
 
-  def test_stepping
+  def test_initialize
+    c = Diff::LongestCommonSubString::Counter.new(1,2)
+    assert_equal 1, c.step_size
+  end
+
+  ### Methods
+
+  def test_step_up_in_old_and_in_new
     c = Diff::LongestCommonSubString::Counter.new(5,80)
     assert_equal PositionRange.new(5,6), c.in_old
     assert_equal PositionRange.new(80,81), c.in_new
@@ -36,7 +45,7 @@ class CounterTest < Test::Unit::TestCase
     assert_equal PositionRange.new(80,83), c2.in_new
   end
 
-  def test_assignment
+  def test_size_in_old_and_in_new_assignment
     c = Diff::LongestCommonSubString::Counter.new(5,80)
     5.times do c.step_up end
 
@@ -65,6 +74,13 @@ class CounterTest < Test::Unit::TestCase
     c3.in_old = PositionRange.new(6,7)
     assert_equal 1, c3.size
     assert_equal PositionRange.new(81,82), c3.in_new
+  end
+
+  def test_step_size
+    c = Diff::LongestCommonSubString::Counter.new(1,5)
+    assert_equal 1, c.step_size
+    c.step_up
+    assert_equal 2, c.step_size
   end
 
   def test_comparison
