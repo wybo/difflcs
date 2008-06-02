@@ -3,8 +3,8 @@
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify 
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General 
+#   LongestCommonSubString is Free Software. You can run/distribute/modify
+#   Diff-LongestCommonSubString under the terms of the GNU Affero General
 #   Public License version 3. The Affero GPL states that running a modified
 #   version or a derivative work also requires you to make the sourcecode of
 #   that work available to everyone that can interact with it. We chose the
@@ -27,7 +27,7 @@ class Diff::LongestCommonSubString::WordSplitArray < Array
   def initialize(text)
     old_end = 0
     # splits for html-tags, for any non-word-characters & for SEPARATORs
-    treated = text.scan(/<\/?\w+>|[^\w<\/>#{SEPARATOR}]+|#{SEPARATOR}/) do |literal| 
+    treated = text.scan(/<\/?\w+>|[^\w<\/>#{SEPARATOR}]+|#{SEPARATOR}/) do |literal|
       match = $~
       if match.begin(0) > old_end
         self.push(text[old_end...match.begin(0)])

@@ -3,8 +3,8 @@
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify 
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General 
+#   LongestCommonSubString is Free Software. You can run/distribute/modify
+#   Diff-LongestCommonSubString under the terms of the GNU Affero General
 #   Public License version 3. The Affero GPL states that running a modified
 #   version or a derivative work also requires you to make the sourcecode of
 #   that work available to everyone that can interact with it. We chose the
@@ -35,7 +35,7 @@ module Diff::LongestCommonSubString
 
   # Diffs words in self with other, see Diff::LongestCommonSubString#diff
   #
-  # Words are non-spaces or groups of spaces delimited by either 
+  # Words are non-spaces or groups of spaces delimited by either
   # spaces or the beginning or the end of the string.
   #
   def word_diff(other, options = {})
@@ -47,12 +47,12 @@ module Diff::LongestCommonSubString
   class << self
     # Diffs the current logi_version and the logi's body_text with the
     # logi_versions body_text given and returns a hash containing:
-    # 
-    # <tt>:matched_old</tt> = the position_ranges in the old text for 
+    #
+    # <tt>:matched_old</tt> = the position_ranges in the old text for
     #     the places where the new matches the old.
-    # <tt>:remaining_new</tt> = the position-ranges for the part of 
+    # <tt>:remaining_new</tt> = the position-ranges for the part of
     #     the new text that remains unmatched in the old
-    # 
+    #
     # Valid options are:
     # * <tt>:minimum_lcs_size</tt> = the minimum size of LCS-es to allow
     #
@@ -66,7 +66,7 @@ module Diff::LongestCommonSubString
       matched_new = original_matched_new.sort
       i = 0
       while i < original_matched_old.size
-        matched_old[matched_new.index(original_matched_new[i])] = 
+        matched_old[matched_new.index(original_matched_new[i])] =
             original_matched_old[i]
         i += 1
       end
@@ -75,7 +75,7 @@ module Diff::LongestCommonSubString
               :matched_new => matched_new}
     end
 
-    # Words are non-spaces or groups of spaces delimited by either 
+    # Words are non-spaces or groups of spaces delimited by either
     # spaces or the beginning or the end of the string.
     #
     def word_diff(old_string, new_string, options = {})
@@ -86,10 +86,10 @@ module Diff::LongestCommonSubString
               :matched_new => new_w_s_arr.translate_to_pos(diff[:matched_new])}
     end
 
-    # Returns a PositionRange::List containing pointers to the Longest 
+    # Returns a PositionRange::List containing pointers to the Longest
     # Common Substrings (not Subsequences) of the Arrays or an empty
     # PositionRange::List if none was found.
-    # 
+    #
     # Valid options are:
     # * <tt>:minimum_lcs_size</tt> = the minimum size of LCS-es to allow
     #

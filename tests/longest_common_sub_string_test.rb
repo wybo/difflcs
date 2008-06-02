@@ -4,8 +4,8 @@
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify 
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General 
+#   LongestCommonSubString is Free Software. You can run/distribute/modify
+#   Diff-LongestCommonSubString under the terms of the GNU Affero General
 #   Public License version 3. The Affero GPL states that running a modified
 #   version or a derivative work also requires you to make the sourcecode of
 #   that work available to everyone that can interact with it. We chose the
@@ -62,9 +62,9 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
   def test_longest_common_sub_strings
     old_arr = 'abcde'.split('')
     new_arr = 'acdbe'.split('')
-    
+
     diff_hash = Diff::LongestCommonSubString.longest_common_sub_strings(old_arr,new_arr)
-    
+
     assert_equal PositionRange.new(2,4),
         diff_hash[:matched_old].first
     assert_equal PositionRange.new(1,3),

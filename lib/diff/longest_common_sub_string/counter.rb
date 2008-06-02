@@ -3,8 +3,8 @@
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify 
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General 
+#   LongestCommonSubString is Free Software. You can run/distribute/modify
+#   Diff-LongestCommonSubString under the terms of the GNU Affero General
 #   Public License version 3. The Affero GPL states that running a modified
 #   version or a derivative work also requires you to make the sourcecode of
 #   that work available to everyone that can interact with it. We chose the
@@ -58,7 +58,7 @@ class Diff::LongestCommonSubString::Counter
   # Sets the in_old PositionRange, and updates the in_new too
   #
   # If new_in_old is nil, the counter is set empty
-  # 
+  #
   # NOTE: Assumed to be smaller than before, and not moved.
   #
   def in_old=(new_in_old)
@@ -85,7 +85,7 @@ class Diff::LongestCommonSubString::Counter
     end
   end
 
-  # Faster than size, but only tells the size to which was 
+  # Faster than size, but only tells the size to which was
   # stepped.
   #
   def step_size

@@ -4,8 +4,8 @@
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify 
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General 
+#   LongestCommonSubString is Free Software. You can run/distribute/modify
+#   Diff-LongestCommonSubString under the terms of the GNU Affero General
 #   Public License version 3. The Affero GPL states that running a modified
 #   version or a derivative work also requires you to make the sourcecode of
 #   that work available to everyone that can interact with it. We chose the
@@ -33,7 +33,7 @@ class WordSplitArrayTest < Test::Unit::TestCase
     assert_equal [' ','boo','. ','ba',' ','bol',' '], Diff::LongestCommonSubString::WordSplitArray.new(' boo. ba bol ')
     assert_equal [' ','boo','. ','<ba>',' ','</bol>',' '], Diff::LongestCommonSubString::WordSplitArray.new(' boo. <ba> </bol> ')
     assert_equal [' ','boo','. ','<ba>','moma','</bol>',' '], Diff::LongestCommonSubString::WordSplitArray.new(' boo. <ba>moma</bol> ')
-    assert_equal ['boo',' ',Diff::LongestCommonSubString::WordSplitArray::SEPARATOR,' ','ba',' ','bol'], 
+    assert_equal ['boo',' ',Diff::LongestCommonSubString::WordSplitArray::SEPARATOR,' ','ba',' ','bol'],
         Diff::LongestCommonSubString::WordSplitArray.new('boo ' + Diff::LongestCommonSubString::WordSplitArray::SEPARATOR + ' ba bol')
   end
 
@@ -41,22 +41,22 @@ class WordSplitArrayTest < Test::Unit::TestCase
 
   def test_translate_to_pos
     # normal
-    assert_equal PositionRange::List.from_s('0,3:3,4:4,6:6,9:9,12'), 
+    assert_equal PositionRange::List.from_s('0,3:3,4:4,6:6,9:9,12'),
         Diff::LongestCommonSubString::WordSplitArray.new('boo ba   bol').translate_to_pos(
             PositionRange::List.from_s('0,1:1,2:2,3:3,4:4,5'))
 
     # scrambled
-    assert_equal PositionRange::List.from_s('3,4:0,3'), 
+    assert_equal PositionRange::List.from_s('3,4:0,3'),
         Diff::LongestCommonSubString::WordSplitArray.new('boo ').translate_to_pos(
             PositionRange::List.from_s('1,2:0,1'))
 
     # ends with space
-    assert_equal PositionRange::List.from_s('0,3:3,4:4,7:7,8'), 
+    assert_equal PositionRange::List.from_s('0,3:3,4:4,7:7,8'),
         Diff::LongestCommonSubString::WordSplitArray.new('boo baa ').translate_to_pos(
             PositionRange::List.from_s('0,1:1,2:2,3:3,4'))
 
     # starts with space
-    assert_equal PositionRange::List.from_s('0,1:1,4:4,5:5,8'), 
+    assert_equal PositionRange::List.from_s('0,1:1,4:4,5:5,8'),
         Diff::LongestCommonSubString::WordSplitArray.new(' boo baa').translate_to_pos(
             PositionRange::List.from_s('0,1:1,2:2,3:3,4'))
   end

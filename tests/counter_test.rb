@@ -4,8 +4,8 @@
 #
 # License:
 #   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify 
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General 
+#   LongestCommonSubString is Free Software. You can run/distribute/modify
+#   Diff-LongestCommonSubString under the terms of the GNU Affero General
 #   Public License version 3. The Affero GPL states that running a modified
 #   version or a derivative work also requires you to make the sourcecode of
 #   that work available to everyone that can interact with it. We chose the
@@ -22,7 +22,7 @@ require 'diff/longest_common_sub_string'
 require 'test/unit'
 
 class CounterTest < Test::Unit::TestCase
-  
+
   ### Initialization
 
   def test_initialize
@@ -92,7 +92,7 @@ class CounterTest < Test::Unit::TestCase
     assert c1 > c2
 
     # cause of no step_ups after in_old => size => comparing
-    c2 = Diff::LongestCommonSubString::Counter.new(15,90) 
+    c2 = Diff::LongestCommonSubString::Counter.new(15,90)
     c2.step_up
     c2.step_up
 
