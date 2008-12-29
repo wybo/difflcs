@@ -2,48 +2,50 @@
 # Copyright: (c) 2006-2008 The LogiLogi Foundation <foundation@logilogi.org>
 #
 # License:
-#   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General
-#   Public License version 3. The Affero GPL states that running a modified
-#   version or a derivative work also requires you to make the sourcecode of
-#   that work available to everyone that can interact with it. We chose the
-#   Affero GPL to ensure that Diff-LongestCommonSubString remains open and
-#   libre (doc/LICENSE.txt contains the full text of the legally binding
-#   license).
+#   This file is part of the DiffLCS library. DiffLCS is Free Software.
+#   You can run/distribute/modify DiffLCS under the terms of the GNU Affero 
+#   General Public License version 3. The Affero GPL states that running a 
+#   modified version or a derivative work also requires you to make the 
+#   sourcecode of that work available to everyone that can interact with it. 
+#   We chose the Affero GPL to ensure that DiffLCS remains open and libre 
+#   (LICENSE.txt contains the full text of the legally binding license).
 #++#
 
-module Diff
-  # = Diff::LongestCommonSubString 0.1.0
-  # Computes the difference between two strings based on their Longest
-  # Common Substrings (not Subsequences).
-  #
-  module LongestCommonSubString
-    VERSION = '0.1.0'
+$:.unshift(File.dirname(__FILE__)) unless
+  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+
+unless defined?(PositionRange)
+  begin
+    $:.unshift(File.dirname(__FILE__) + "/../../positionrange/lib")  
+    require 'position_range'
+  rescue LoadError
+    require 'rubygems'
+    gem 'positionrange'
+    require 'position_range'
   end
 end
 
-require 'diff/longest_common_sub_string/counter'
-require 'diff/longest_common_sub_string/word_split_array'
-
-module Diff::LongestCommonSubString
-  # Diffs self with other, see Diff::LongestCommonSubString#diff
+module DiffLCS
+  # Diffs self with other, see DiffLCS#diff
   #
   def diff(other, options = {})
-    Diff::LongestCommonSubString.diff(self.split(''), other.split(''), options)
+    DiffLCS.diff(self.split(''), other.split(''), options)
   end
 
-  # Diffs words in self with other, see Diff::LongestCommonSubString#diff
+  # Diffs words in self with other, see DiffLCS#diff
   #
   # Words are non-spaces or groups of spaces delimited by either
   # spaces or the beginning or the end of the string.
   #
   def word_diff(other, options = {})
-    Diff::LongestCommonSubString.word_diff(self, other, options)
+    DiffLCS.word_diff(self, other, options)
   end
 end
 
-module Diff::LongestCommonSubString
+require 'diff_l_c_s/counter'
+require 'diff_l_c_s/word_split_array'
+
+module DiffLCS
   class << self
     # Diffs the current logi_version and the logi's body_text with the
     # logi_versions body_text given and returns a hash containing:
@@ -58,7 +60,7 @@ module Diff::LongestCommonSubString
     #
     def diff(old_arr, new_arr, options = {})
       minimum_lcs_size = options[:minimum_lcs_size] || 0
-      diff_hash = Diff::LongestCommonSubString.longest_common_sub_strings(old_arr, new_arr,
+      diff_hash = DiffLCS.longest_common_sub_strings(old_arr, new_arr,
           :minimum_lcs_size => minimum_lcs_size)
       original_matched_old = diff_hash[:matched_old]
       matched_old = PositionRange::List.new
@@ -79,9 +81,9 @@ module Diff::LongestCommonSubString
     # spaces or the beginning or the end of the string.
     #
     def word_diff(old_string, new_string, options = {})
-      old_w_s_arr = Diff::LongestCommonSubString::WordSplitArray.new(old_string)
-      new_w_s_arr = Diff::LongestCommonSubString::WordSplitArray.new(new_string)
-      diff = Diff::LongestCommonSubString.diff(old_w_s_arr, new_w_s_arr, options)
+      old_w_s_arr = DiffLCS::WordSplitArray.new(old_string)
+      new_w_s_arr = DiffLCS::WordSplitArray.new(new_string)
+      diff = DiffLCS.diff(old_w_s_arr, new_w_s_arr, options)
       return {:matched_old => old_w_s_arr.translate_to_pos(diff[:matched_old]),
               :matched_new => new_w_s_arr.translate_to_pos(diff[:matched_new])}
     end

@@ -1,28 +1,21 @@
-#! /usr/bin/env ruby
 #--#
 # Copyright: (c) 2006-2008 The LogiLogi Foundation <foundation@logilogi.org>
 #
 # License:
-#   This file is part of the Diff-LongestCommonSubString library. Diff-
-#   LongestCommonSubString is Free Software. You can run/distribute/modify
-#   Diff-LongestCommonSubString under the terms of the GNU Affero General
-#   Public License version 3. The Affero GPL states that running a modified
-#   version or a derivative work also requires you to make the sourcecode of
-#   that work available to everyone that can interact with it. We chose the
-#   Affero GPL to ensure that Diff-LongestCommonSubString remains open and
-#   libre (doc/LICENSE.txt contains the full text of the legally binding
-#   license).
+#   This file is part of the DiffLCS library. DiffLCS is Free Software.
+#   You can run/distribute/modify DiffLCS under the terms of the GNU Affero 
+#   General Public License version 3. The Affero GPL states that running a 
+#   modified version or a derivative work also requires you to make the 
+#   sourcecode of that work available to everyone that can interact with it. 
+#   We chose the Affero GPL to ensure that DiffLCS remains open and libre 
+#   (LICENSE.txt contains the full text of the legally binding license).
 #++#
 
-$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib",
-    "#{File.dirname(__FILE__)}/../../position_range/lib") if __FILE__ == $0
+require File.dirname(__FILE__) + '/test_helper.rb'
 
-require 'position_range'
-require 'diff/longest_common_sub_string'
-require 'diff/longest_common_sub_string/string'
-require 'test/unit'
+require 'diff_l_c_s/string'
 
-class LongestCommonSubStringTest < Test::Unit::TestCase
+class DiffLCSTest < Test::Unit::TestCase
   ### Class methods
 
   def test_diff
@@ -63,7 +56,7 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
     old_arr = 'abcde'.split('')
     new_arr = 'acdbe'.split('')
 
-    diff_hash = Diff::LongestCommonSubString.longest_common_sub_strings(old_arr,new_arr)
+    diff_hash = DiffLCS.longest_common_sub_strings(old_arr,new_arr)
 
     assert_equal PositionRange.new(2,4),
         diff_hash[:matched_old].first
@@ -75,7 +68,7 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
 
     assert_equal({:matched_old => PositionRange::List.from_s('8,14:0,5'),
             :matched_new => PositionRange::List.from_s('6,12:0,5')},
-        Diff::LongestCommonSubString.longest_common_sub_strings(old_arr,new_arr))
+        DiffLCS.longest_common_sub_strings(old_arr,new_arr))
   end
 
   def test_string
@@ -99,7 +92,7 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
             new_chunk_arr - (new_chunk_arr - similar_chunk_arr), new)
     assert_equal({:matched_old => target_matched_old,
             :matched_new => target_matched_new},
-        Diff::LongestCommonSubString.diff(old_arr, new_arr, :minimum_lcs_size => 15))
+        DiffLCS.diff(old_arr, new_arr, :minimum_lcs_size => 15))
   end
 
   def do_word_diff_test(similar_chunk_arr, old_chunk_arr, new_chunk_arr)
@@ -113,7 +106,7 @@ class LongestCommonSubStringTest < Test::Unit::TestCase
             new_chunk_arr - (new_chunk_arr - similar_chunk_arr), new)
     assert_equal({:matched_old => target_matched_old,
             :matched_new => target_matched_new},
-        Diff::LongestCommonSubString.word_diff(old, new, :minimum_lcs_size => 3))
+        DiffLCS.word_diff(old, new, :minimum_lcs_size => 3))
   end
 
   def get_position_range_list_for_ranges_of_in(substrings, string)
