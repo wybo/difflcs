@@ -1,3 +1,8 @@
 *0.6.0* (28 December 2008)
 
 * First release as a gem
+
+
+*0.6.1* (31 December 2008)
+
+* Updated README.txt
