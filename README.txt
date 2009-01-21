@@ -57,7 +57,7 @@ The latest version of Diff LCS can be found at:
 
 Documentation can be found at:
 
-* http://difflcs.rubyonrails.org
+* http://difflcs.rubyforge.org
 
 == Installation
 
