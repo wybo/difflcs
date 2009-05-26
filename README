@@ -1,4 +1,6 @@
-= Diff Longest Common Sub String -- The diff sniffing out every move
+= Diff Longest Common Sub String Gem documentation
+
+-- The diff sniffing out texts every move
 
 A resonably fast diff algoritm using longest common substrings that
 can also find text that has moved.
@@ -26,7 +28,7 @@ NOTE: They are arrays, not strings.
   => {
        :matched_old=>[0...2, 5...9, 2...4],
        :matched_new=>[0...2, 3...7, 7...9]
-     },
+     }
 
 As you see it can sniff out text that has moved too.
 
@@ -37,8 +39,7 @@ prevent too many matches;
   => {
        :matched_old => PositionRange::List.from_s('5,9'),
        :matched_new => PositionRange::List.from_s('3,7')
-     },
-
+     }
 
 Diff can be called directly on strings too, if 'diff_l_c_s/string' is required.
 
@@ -49,31 +50,19 @@ Diff can be called directly on strings too, if 'diff_l_c_s/string' is required.
        :matched_new=>[0...1, 1...2, 2...3]
      }
 
-== Download
-
-The latest version of Diff LCS can be found at:
-
-* http://rubyforge.org/frs/?group_id=7565
-
-Documentation can be found at:
-
-* http://difflcs.rubyforge.org
-
 == Installation
 
 You can install Diff LCS with the following command:
 
   % [sudo] gem install difflcs
 
-Or from its distribution directory with:
+The latest version of Diff LCS can also be downloaded at:
+
+* http://rubyforge.org/frs/?group_id=7565
+
+And then from its distribution directory installed with:
 
   % [sudo] ruby install.rb
-
-== License
-
-Diff LCS is released under the GNU Affero GPL licence.
-
-* http://www.fsf.org/licensing/licenses/agpl-3.0.html
 
 == Support
 
@@ -85,3 +74,20 @@ For the latest news on Diff LCS:
 
 Feel free to submit commits or feature requests. If you send a patch,
 remember to update the corresponding unit tests.
+
+== This Documentation
+
+This documentation can be browsed online at:
+
+* http://difflcs.rubyforge.org
+
+== Copyrights
+
+Diff LCS and these docs are Copyright (c) 2006-2009 The LogiLogi
+Foundation. Diff LCS is licensed under the {GNU Lesser General 
+Public License}[http://www.gnu.org/licenses/lgpl-3.0-standalone.html].
+These docs are available under the {Creative Commons Attribution-Share
+Alike License}[http://creativecommons.org/licenses/by-sa/3.0/].
+   
+You can use Diff LCS in an application that is not Free Software
+but Diff LCS itself remains Free Software.

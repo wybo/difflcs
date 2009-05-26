@@ -34,7 +34,7 @@ Rake::RDocTask.new { |rdoc|
   rdoc.title    = "Diff Longest Common Substring -- The diff sniffing out every move"
   rdoc.options << '--line-numbers' << '--inline-source' << '-A cattr_accessor=object'
   rdoc.options << '--charset' << 'utf-8'
-  rdoc.rdoc_files.include('README.txt', 'CHANGELOG.txt')
+  rdoc.rdoc_files.include('README', 'CHANGELOG')
   rdoc.rdoc_files.include('lib/diff_l_c_s.rb')
   rdoc.rdoc_files.include('lib/diff_l_c_s/*.rb')
 }
@@ -58,7 +58,7 @@ spec = Gem::Specification.new do |s|
   s.requirements << 'none'
   s.require_path = 'lib'
 
-  s.files = [ "Rakefile", "install.rb", "README.txt", "CHANGELOG.txt", "LICENSE.txt" ]
+  s.files = [ "Rakefile", "install.rb", "README", "CHANGELOG", "LICENSE" ]
   s.files = s.files + Dir.glob( "lib/**/*" ).delete_if { |item| item.include?( "\.svn" ) }
   s.files = s.files + Dir.glob( "test/**/*" ).delete_if { |item| item.include?( "\.svn" ) }
 end
