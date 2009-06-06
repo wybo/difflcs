@@ -1,6 +1,5 @@
 = Diff Longest Common Sub String Gem documentation
-
--- The diff sniffing out texts every move
+  "The diff sniffing out texts every move"
 
 A resonably fast diff algoritm using longest common substrings that
 can also find text that has moved.
