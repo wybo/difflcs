@@ -1,3 +1,8 @@
+*0.6.7* (23 June 2012)
+
+* Moved to Github, re-released using bundler under MIT license
+
+
 *0.6.6* (4 June 2009)
 
 * Fixed rdoc-generation bug in README
