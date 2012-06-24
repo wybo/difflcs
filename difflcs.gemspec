@@ -17,7 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "rake"
   gem.add_development_dependency "test-unit"
+  gem.add_development_dependency "require_relative"
 
   gem.add_dependency "positionrange"
-  gem.add_dependency "require_relative"
 end
