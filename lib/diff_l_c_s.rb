@@ -5,20 +5,7 @@
 #++#
 
 require "diff_l_c_s/version"
-
-$:.unshift(File.dirname(__FILE__)) unless
-    $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
-unless defined?(PositionRange)
-  begin
-    $:.unshift(File.dirname(__FILE__) + "/../../positionrange/lib")  
-    require 'position_range'
-  rescue LoadError
-    require 'rubygems'
-    gem 'positionrange'
-    require 'position_range'
-  end
-end
+require 'position_range'
 
 module DiffLCS
   # Diffs self with other, see DiffLCS#diff

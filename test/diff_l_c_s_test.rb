@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require "test_helper.rb"
 
-require 'diff_l_c_s/string'
+require "diff_l_c_s/string"
 
 class DiffLCSTest < Test::Unit::TestCase
   ### Class methods

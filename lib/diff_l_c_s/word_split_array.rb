@@ -1,5 +1,4 @@
 class DiffLCS::WordSplitArray < Array
-
   ### Constants
 
   # Used as a separator
