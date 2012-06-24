@@ -53,7 +53,7 @@ Diff can be called directly on strings too, if 'diff_l_c_s/string' is required.
 
 Add this line to your application's Gemfile:
 
-    gem 'diff_l_c_s'
+    gem 'difflcs'
 
 And then execute:
 
@@ -61,7 +61,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install diff_l_c_s
+    $ gem install difflcs
 
 ## Contributing
 
