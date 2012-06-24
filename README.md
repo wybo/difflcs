@@ -4,9 +4,6 @@
 A resonably fast diff algoritm using longest common substrings that
 can also detect text that has moved.
 
-DiffLCS is a library by the LogiLogi Foundation, extracted from
-http://www.logilogi.org (http://foundation.logilogi.org).
-
 ## Usage
 
 First require it.
