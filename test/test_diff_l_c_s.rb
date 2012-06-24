@@ -1,4 +1,5 @@
-require "test_helper.rb"
+['rubygems', 'require_relative'].each {|g| require g} if RUBY_VERSION =~ /1\.8/
+require_relative "helper"
 
 require "diff_l_c_s/string"
 

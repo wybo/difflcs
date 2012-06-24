@@ -1,4 +1,5 @@
-require "test_helper.rb"
+['rubygems', 'require_relative'].each {|g| require g} if RUBY_VERSION =~ /1\.8/
+require_relative "helper"
 
 class WordSplitArrayTest < Test::Unit::TestCase
   ### Initialization
