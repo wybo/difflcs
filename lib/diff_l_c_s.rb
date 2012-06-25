@@ -4,26 +4,8 @@
 # MIT Licensed
 #++#
 
-require "diff_l_c_s/version"
 require 'position_range'
-
-module DiffLCS
-  # Diffs self with other, see DiffLCS#diff
-  #
-  def diff(other, options = {})
-    DiffLCS.diff(self.split(''), other.split(''), options)
-  end
-
-  # Diffs words in self with other, see DiffLCS#diff
-  #
-  # Words are non-spaces or groups of spaces delimited by either
-  # spaces or the beginning or the end of the string.
-  #
-  def word_diff(other, options = {})
-    DiffLCS.word_diff(self, other, options)
-  end
-end
-
+require 'diff_l_c_s/version'
 require 'diff_l_c_s/counter'
 require 'diff_l_c_s/word_split_array'
 
@@ -126,5 +108,20 @@ module DiffLCS
       return {:matched_old => in_old_p_r_list,
           :matched_new => in_new_p_r_list}
     end
+  end
+
+  # Diffs self with other, see DiffLCS#diff
+  #
+  def diff(other, options = {})
+    DiffLCS.diff(self.split(''), other.split(''), options)
+  end
+
+  # Diffs words in self with other, see DiffLCS#diff
+  #
+  # Words are non-spaces or groups of spaces delimited by either
+  # spaces or the beginning or the end of the string.
+  #
+  def word_diff(other, options = {})
+    DiffLCS.word_diff(self, other, options)
   end
 end

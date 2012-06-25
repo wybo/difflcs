@@ -7,10 +7,9 @@ Gem::Specification.new do |gem|
   gem.description = "A resonably fast diff algoritm using longest common substrings that can also detect text that has moved"
   gem.summary = "Diff algoritm that can detect text that has moved"
   gem.homepage = "https://github.com/wybo/difflcs"
-  gem.rubyforge_project = "difflcs"
 
   gem.files = `git ls-files`.split($\)
-  gem.test_files = gem.files.grep(%r{^test/.*_test.rb})
+  gem.test_files = gem.files.grep(%r{^test/test_.*})
   gem.name = "difflcs"
   gem.require_paths = ["lib"]
   gem.version = DiffLCS::VERSION

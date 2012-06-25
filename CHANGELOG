@@ -1,6 +1,9 @@
-*0.6.7* (23 June 2012)
+*0.6.9* (24 June 2012)
 
-* Moved to Github, re-released using bundler under MIT license
+* Moved to Github
+* Re-released using bundler
+* Re-licensed under MIT license
+* Updated docs
 
 
 *0.6.6* (4 June 2009)

@@ -1,5 +1,5 @@
 ['rubygems', 'require_relative'].each {|g| require g} if RUBY_VERSION =~ /1\.8/
-require_relative "helper"
+require_relative 'helper'
 
 class CounterTest < Test::Unit::TestCase
 

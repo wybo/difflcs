@@ -1,7 +1,7 @@
 ['rubygems', 'require_relative'].each {|g| require g} if RUBY_VERSION =~ /1\.8/
-require_relative "helper"
+require_relative 'helper'
 
-require "diff_l_c_s/string"
+require 'diff_l_c_s/string'
 
 class DiffLCSTest < Test::Unit::TestCase
   ### Class methods

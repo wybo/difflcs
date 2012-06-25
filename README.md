@@ -60,7 +60,15 @@ Or install it yourself as:
 
     $ gem install difflcs
 
+Feel free to report issues and to ask questions. For the latest news on
+DiffLCS:
+
+* http://foundation.logilogi.org/tags/DiffLCS
+
 ## Contributing
+
+If you wish to contribute, please create a pull-request and remember to update
+the corresponding unit test(s).
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
